@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import Terms from "./Terms";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
+import { FiPhone, FiGlobe, FiMail, FiMapPin } from "react-icons/fi";
+import Ticketsection from "./Ticketsection"
 /* ─── Google Fonts ─────────────────────────────────────────────────────────── */
 if (!document.getElementById("gf")) {
   const l = document.createElement("link");
@@ -9,6 +10,12 @@ if (!document.getElementById("gf")) {
   l.href = "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Poppins:wght@300;400;500;600;700;800&family=Great+Vibes&display=swap";
   document.head.appendChild(l);
 }
+const fallbackIcons = [
+  <FiPhone />,
+  <FiGlobe />,
+  <FiMail />,
+  <FiMapPin />
+];
 
 /* ─── Palette ───────────────────────────────────────────────────────────────── */
 const C = {
@@ -35,12 +42,7 @@ const useIsMobile = () => {
   return v;
 };
 
-/* ─── Shared helpers ────────────────────────────────────────────────────────── */
-const Arrow = () => (
-  <svg width="24" height="16" viewBox="0 0 28 20" fill="none" style={{ flexShrink: 0 }}>
-    <polygon points="0,10 20,0 20,7 28,7 28,13 20,13 20,20" fill={C.magenta} />
-  </svg>
-);
+
 
 const SH = ({ children, center = false }) => (
   <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 24, justifyContent: center ? "center" : "flex-start" }}>
@@ -89,7 +91,7 @@ const Nav = () => {
 
   useEffect(() => { document.body.style.overflow = open && m ? "hidden" : ""; }, [open, m]);
 
-  const links = ["About", "Program", "Highlights", "Sponsorship", "Contact"];
+  const links = ["About", "Program", "Highlights", "Ticket", "Contact"];
   const go = (id) => {
     setOpen(false);
     setTimeout(() => document.getElementById(id.toLowerCase())?.scrollIntoView({ behavior: "smooth" }), 60);
@@ -180,10 +182,28 @@ const Hero = () => {
     <section id="home" style={{ background: `linear-gradient(160deg,${C.off} 0%,#ffe3e7 45%,#f9d0eb 100%)`, minHeight: "100vh", position: "relative", overflow: "hidden", display: "flex", flexDirection: "column", alignItems: "center", padding: "0 0 25px" }}>
 
       {/* Top bar */}
-      <div style={{ width: "100%", height: 7, background: `linear-gradient(90deg,${C.deep},${C.magenta})` }} />
+      {/* <div style={{ width: "100%", height: 7, background: `linear-gradient(90deg,${C.deep},${C.magenta})` }} /> */}
 
       {/* Content */}
-      <div style={{ position: "relative", zIndex: 5, textAlign: "center", padding: m ? "70px 18px 16px" : "clamp(36px,7vw,60px) clamp(24px,8vw,80px)", width: "100%", maxWidth: 640, boxSizing: "border-box", opacity: vis ? 1 : 0, transform: vis ? "translateY(0)" : "translateY(26px)", transition: "opacity .8s,transform .8s" }}>
+      <div
+        style={{
+          position: "relative",
+          zIndex: 5,
+          textAlign: "center",
+          padding:
+            m
+              ? "60px 16px 14px"          // mobile
+              : window.innerWidth <= 1024
+                ? "26px 24px 16px"          // tablet (reduced a lot)
+                : "44px 80px 22px",         // desktop
+          width: "100%",
+          maxWidth: 640,
+          boxSizing: "border-box",
+          opacity: vis ? 1 : 0,
+          transform: vis ? "translateY(0)" : "translateY(26px)",
+          transition: "opacity .8s,transform .8s"
+        }}
+      >
 
         {/* Logo img */}
         <img src="https://res.cloudinary.com/dcnwphnzn/image/upload/v1771322963/502984340_17844445962497801_1109855258096356854_n.jpg_zj71e9.jpg" alt="Bindu Society Logo"
@@ -230,6 +250,7 @@ const Hero = () => {
           <p style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 700, fontSize: m ? "0.76rem" : "0.94rem", color: C.magenta, margin: 0, textTransform: "uppercase" }}>VMRDA Children's Arena</p>
           <p style={{ fontFamily: "'Poppins',sans-serif", fontSize: m ? "0.63rem" : "0.78rem", color: C.mid, margin: "3px 0 0" }}>Siripuram, Visakhapatnam, Andhra Pradesh</p>
         </div>
+        <Ticketsection />
       </div>
 
       {/* Wave */}
@@ -438,7 +459,6 @@ const Program = () => {
             background: C.white,
             borderRadius: 16,
             overflow: "hidden",
-            boxShadow: "0 6px 32px rgba(192,0,110,0.12)",
             border: `1px solid ${C.magenta}14`
           }}
         >
@@ -750,7 +770,7 @@ const Highlights = () => {
         </div>
 
         {/* ── Women Shakthi Iconic Awards ── */}
-        <div style={{ background: "#ffffff", borderRadius: 16, overflow: "hidden", boxShadow: "0 8px 36px rgba(192,0,110,0.28)" }}>
+        <div style={{ background: "#ffffff", borderRadius: 16, overflow: "hidden" }}>
           <div style={{ display: "grid", gridTemplateColumns: m ? "1fr" : "minmax(210px,300px) 1fr" }}>
 
             {/* Trophy / awards image */}
@@ -792,79 +812,6 @@ const Highlights = () => {
 };
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   SPONSORSHIP
-   ═══════════════════════════════════════════════════════════════════════════ */
-// const Sponsorship = () => {
-//   const m = useIsMobile();
-
-//   const plans = [
-//     { name: "Main Sponsor", price: "Rs. 2,00,000/-", benefits: ["Logo on All Brochures & Poster Promotions", "Brand Promotion (On-Ground & Digital)", "Digital Marketing Promotion", "AV Branding", "Logo on 1st & 2nd Arches", "Logo on Main Event Backdrop", "Advertisement Slot", "Brand Promotion by Event Anchor", "Memento & On-Stage Felicitation", "Dedicated Stall Allotment", "7 Free Tickets"] },
-//     { name: "Co-Sponsor", price: "Rs. 1,00,000/-", benefits: ["Logo on All Brochures & Poster Promotions", "Digital Marketing Promotion", "Logo on Event Backdrop", "Brand Promotion by Event Anchor", "Memento", "Stall Allotment", "Advertisements on LED Screen", "Logo on 2nd arch", "5 Free Tickets"] },
-//     { name: "Sponsor", price: "Rs. 50,000/-", benefits: ["Logo on All Brochures & Poster Promotions", "Digital Marketing Promotion", "Logo on Event Backdrop", "Brand Promotion by Event Anchor", "Memento", "Stall Allotment", "Running Advertisements During The Event", "4 Free Tickets"] },
-//     { name: "Sponsor", price: "Rs. 20,000/-", benefits: ["Stall Allotment", "Logo on BackDrop"] },
-//   ];
-
-//   const why = [
-//     { icon: "/images/icon-visibility.png", label: "High Brand Visibility" },
-//     { icon: "/images/icon-reach.png", label: "Digital & On-Ground Reach" },
-//     { icon: "/images/icon-engagement.png", label: "Direct Audience Engagement" },
-//     { icon: "/images/icon-recall.png", label: "Strong Brand Recall" },
-//   ];
-
-//   return (
-//     <section id="sponsorship" style={{ background: C.white, padding: m ? "36px 16px" : "clamp(44px,7vw,76px) clamp(20px,7vw,76px)" }}>
-//       <div style={{ maxWidth: 1060, margin: "0 auto" }}>
-
-//         {/* Header */}
-//         <div style={{ textAlign: "center", marginBottom: m ? 22 : 36 }}>
-//           <div style={{ display: "inline-block", background: "#ab2164", borderRadius: 50, padding: m ? "8px 22px" : "10px 34px", boxShadow: "0 4px 16px rgba(192,0,110,0.26)", marginBottom: 9 }}>
-//             <span style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 800, fontSize: m ? "0.85rem" : "clamp(0.88rem,2.2vw,1.22rem)", color: C.white, letterSpacing: 1, textTransform: "uppercase" }}>SPONSORSHIP OPPORTUNITIES</span>
-//           </div>
-//           <p style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 500, fontSize: m ? "0.74rem" : "0.9rem", color: C.mid, margin: 0 }}>Partner With Us • Elevate Your Brand</p>
-//         </div>
-
-//         {/* Plan cards */}
-//         <div style={{ display: "grid", gridTemplateColumns: m ? "1fr 1fr" : "repeat(4,1fr)", gap: m ? 9 : 16, marginBottom: m ? 22 : 36 }}>
-//           {plans.map((p, i) => (
-//             <div key={i} style={{  background: "#ab2164", borderRadius: 13, overflow: "hidden", boxShadow: "0 6px 24px rgba(192,0,110,0.2)", transition: "transform .2s,box-shadow .2s", cursor: "default" }}
-//               onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-5px)"; e.currentTarget.style.boxShadow = "0 14px 32px rgba(192,0,110,0.35)"; }}
-//               onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 6px 24px rgba(192,0,110,0.2)"; }}>
-//               <div style={{ padding: m ? "11px 9px 9px" : "16px 14px 12px", borderBottom: "1px solid rgba(255,255,255,0.16)", textAlign: "center" }}>
-//                 <h3 style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 800, fontSize: m ? "0.67rem" : "0.9rem", color: C.white, margin: "0 0 5px", textTransform: "uppercase", letterSpacing: 1 }}>{p.name}</h3>
-//                 <div style={{ fontFamily: "'Playfair Display',serif", fontWeight: 900, fontSize: m ? "0.77rem" : "1.12rem", color: C.gold }}>{p.price}</div>
-//               </div>
-//               <div style={{ padding: m ? "9px" : "13px 14px" }}>
-//                 {p.benefits.map((b, j) => (
-//                   <div key={j} style={{ display: "flex", alignItems: "flex-start", gap: 5, marginBottom: 5 }}>
-//                     <span style={{ color: C.pink, fontSize: "0.5rem", flexShrink: 0, marginTop: 4 }}>●</span>
-//                     <span style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 400, fontSize: m ? "0.58rem" : "0.73rem", color: "rgba(255,255,255,0.9)", lineHeight: 1.5 }}>{b}</span>
-//                   </div>
-//                 ))}
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-
-//         {/* Why Sponsor */}
-//         <div style={{ background: `linear-gradient(135deg,${C.magenta}0D,${C.purple}0D)`, borderRadius: 13, padding: m ? "18px 14px" : "26px 30px", border: `1px solid ${C.magenta}1C` }}>
-//           <h3 style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 800, fontSize: m ? "0.84rem" : "1.02rem", color: C.deep, margin: "0 0 14px", textAlign: "center", textTransform: "uppercase", letterSpacing: 2 }}>WHY SPONSOR WITH US?</h3>
-//           <div style={{ display: "grid", gridTemplateColumns: m ? "1fr 1fr" : "repeat(4,1fr)", gap: m ? 9 : 14 }}>
-//             {why.map((w, i) => (
-//               <div key={i} style={{ display: "flex", alignItems: "center", gap: 10, background: C.white, borderRadius: 9, padding: m ? "9px 11px" : "13px 14px", boxShadow: "0 2px 9px rgba(192,0,110,0.07)", border: `1px solid ${C.magenta}10` }}>
-//                 <img src={w.icon} alt={w.label}
-//                   style={{ width: m ? 22 : 28, height: m ? 22 : 28, objectFit: "contain", flexShrink: 0 }}
-//                   onError={e => e.target.style.display = "none"} />
-//                 <span style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 600, fontSize: m ? "0.64rem" : "0.82rem", color: C.deep }}>{w.label}</span>
-//               </div>
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-/* ═══════════════════════════════════════════════════════════════════════════
    THANK YOU  /  CONTACT
    ═══════════════════════════════════════════════════════════════════════════ */
 const Contact = () => {
@@ -881,14 +828,11 @@ const Contact = () => {
 
 
   const contacts = [
-    { icon: "/images/icon-phone.png", text: "7997444649" },
+    { icon: "/images/icon-phone.png", text: "+91 7997444649" },
     { icon: "/images/icon-web.png", text: "www.bindusociety.in" },
     { icon: "/images/icon-email.png", text: "bindu.womensociety@gmail.com" },
     { icon: "/images/icon-location.png", text: "VMRDA Children's Arena, Siripuram, Visakhapatnam, Andhra Pradesh" },
   ];
-
-  /* fallback: if icon image fails to load, show a tiny colored circle */
-  const fallbackIcons = ["📞", "🌐", "✉️", "📍"];
 
   return (
     <section id="contact" style={{ background: `linear-gradient(160deg,${C.off} 0%,#ffe3e7 100%)`, padding: m ? "36px 16px 52px" : "clamp(44px,7vw,76px) clamp(20px,7vw,76px) 60px", textAlign: "center", position: "relative", overflow: "hidden" }}>
@@ -962,20 +906,176 @@ const Contact = () => {
           ))}
         </div>
         {/* Contact card */}
-        <div style={{ background: C.white, borderRadius: 14, padding: m ? "16px 14px" : "26px 30px", boxShadow: "0 4px 20px rgba(192,0,110,0.09)", border: `1px solid ${C.magenta}12`, marginBottom: 18 }}>
-          <div style={{ display: "grid", gridTemplateColumns: m ? "1fr" : "1fr 1fr", gap: m ? 12 : 16, textAlign: "left" }}>
-            {contacts.map((c, i) => (
-              <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
-                {/* icon image with emoji fallback */}
-                <div style={{ width: m ? 30 : 36, height: m ? 30 : 36, borderRadius: "50%", flexShrink: 0, background: "#ab2164", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", boxShadow: "0 2px 8px rgba(192,0,110,0.22)" }}>
-                  <img src={c.icon} alt="" style={{ width: "60%", height: "60%", objectFit: "contain", filter: "brightness(0) invert(1)" }}
-                    onError={e => { e.target.style.display = "none"; e.target.parentNode.innerHTML = fallbackIcons[i]; }} />
-                </div>
-                <p style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 700, fontSize: m ? "0.68rem" : "0.82rem", color: C.deep, margin: 0, paddingTop: 5, lineHeight: 1.5 }}>{c.text}</p>
-              </div>
-            ))}
+        <div
+          style={{
+            background: C.white,
+            borderRadius: 14,
+            padding: m ? "16px 14px" : "26px 30px",
+            boxShadow: "0 4px 20px rgba(192,0,110,0.09)",
+            border: `1px solid ${C.magenta}12`,
+            marginBottom: 18
+          }}
+        >
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: m ? "1fr" : "1fr 1fr",
+              gap: m ? 12 : 16,
+              textAlign: "left"
+            }}
+          >
+            {contacts.map((c, i) => {
+              const icons = [<FiPhone />, <FiGlobe />, <FiMail />, <FiMapPin />];
+
+              let link = null;
+
+              // PHONE
+              // PHONE → open dialer
+              if (/^\+?\d[\d\s-]{7,}$/.test(c.text.trim())) {
+                link = `tel:${c.text.replace(/\s/g, "")}`;
+              }
+
+              // EMAIL
+              else if (c.text.includes("@")) {
+                link = `mailto:${c.text}`;
+              }
+
+              // WEBSITE
+              else if (c.text.includes("http") || c.text.includes("www")) {
+                link = c.text.startsWith("http") ? c.text : `https://${c.text}`;
+              }
+
+              // LOCATION → Google Maps
+              else {
+                link = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                  c.text
+                )}`;
+              }
+
+              return (
+                <a
+                  key={i}
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: 10,
+                    textDecoration: "none",
+                    cursor: "pointer"
+                  }}
+                >
+                  {/* Icon */}
+                  <div
+                    style={{
+                      width: m ? 30 : 36,
+                      height: m ? 30 : 36,
+                      borderRadius: "50%",
+                      flexShrink: 0,
+                      background: "#ab2164",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "#fff",
+                      fontSize: m ? 14 : 18,
+                      boxShadow: "0 2px 8px rgba(192,0,110,0.22)"
+                    }}
+                  >
+                    {icons[i]}
+                  </div>
+
+                  {/* Text */}
+                  <p
+                    style={{
+                      fontFamily: "'Poppins',sans-serif",
+                      fontWeight: 700,
+                      fontSize: m ? "0.68rem" : "0.82rem",
+                      color: C.deep,
+                      margin: 0,
+                      paddingTop: 5,
+                      lineHeight: 1.5
+                    }}
+                  >
+                    {c.text}
+                  </p>
+                </a>
+              );
+            })}
           </div>
         </div>
+
+        <section
+          id="ticket"
+          style={{
+            background: "#fff6fb",
+            padding: "16px 14px",
+            textAlign: "center",
+            borderRadius: 12
+          }}
+        >
+          {/* Registration fee */}
+          <p
+            style={{
+              fontFamily: "'Poppins',sans-serif",
+              fontSize: "0.58rem",   // reduced
+              letterSpacing: 1,
+              color: "#7a4060",
+              margin: 0,
+              textTransform: "uppercase",
+              fontWeight: 600
+            }}
+          >
+            Registration Fee
+          </p>
+
+          <p
+            style={{
+              fontFamily: "'Poppins',sans-serif",
+              fontSize: "1.6rem",   // reduced from 2rem
+              fontWeight: 800,
+              color: "#C0006E",
+              margin: "4px 0 12px",
+              lineHeight: 1
+            }}
+          >
+            ₹599
+            <span
+              style={{
+                fontSize: "0.7rem",   // reduced
+                fontWeight: 500,
+                color: "#7a4060"
+              }}
+            >
+              /person
+            </span>
+          </p>
+
+          {/* Razorpay button */}
+          <a
+            href="https://rzp.io/rzp/vRIXO9g"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 8,
+              background: "linear-gradient(135deg,#C0006E,#8b0050)",
+              color: "#fff",
+              padding: "12px 22px", // slightly smaller
+              borderRadius: 12,
+              textDecoration: "none",
+              fontFamily: "'Poppins',sans-serif",
+              fontWeight: 700,
+              fontSize: "0.82rem",  // reduced
+              boxShadow: "0 6px 18px rgba(192,0,110,0.25)"
+            }}
+          >
+            💳 Pay & Register
+          </a>
+        </section>
+
 
         {/* Noble cause */}
         <div style={{ background: `${C.magenta}0C`, borderRadius: 9, padding: m ? "10px 13px" : "13px 22px", border: `1px solid ${C.magenta}1C` }}>
@@ -1004,7 +1104,7 @@ const Contact = () => {
       </section>
 
       {/* Bottom bar */}
-      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, background: `linear-gradient(90deg,${C.deep},${C.magenta})`, height: 7 }} />
+      {/* <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, background: `linear-gradient(90deg,${C.deep},${C.magenta})`, height: 7 }} /> */}
     </section>
   );
 };

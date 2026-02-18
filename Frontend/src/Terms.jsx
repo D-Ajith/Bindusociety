@@ -130,13 +130,6 @@ export default function Terms() {
                 overflowX: "hidden",
             }}
         >
-            {/* ── Top decorative border ── */}
-            <div
-                style={{
-                    height: "6px",
-                    background: `linear-gradient(90deg, ${C.darkPink}, ${C.accentPink}, ${C.darkPink}, ${C.accentPink}, ${C.darkPink})`,
-                }}
-            />
 
             {/* ── Header ── */}
             <header
@@ -403,13 +396,7 @@ export default function Terms() {
                 </button>
             </main>
 
-            {/* ── Bottom decorative border ── */}
-            <div
-                style={{
-                    height: "6px",
-                    background: `linear-gradient(90deg, ${C.darkPink}, ${C.accentPink}, ${C.darkPink}, ${C.accentPink}, ${C.darkPink})`,
-                }}
-            />
+           
         </div>
     );
 }
