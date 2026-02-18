@@ -385,9 +385,7 @@ export default function Terms() {
                     }}
                 >
                     <p>For queries, contact Bindu Women Entrepreneur Society</p>
-                    <p style={{ color: C.midPink, marginTop: "0.3rem", fontWeight: "500" }}>
-                        iQube Business Solutions | Branches: Rajahmundry & Kakinada
-                    </p>
+                   
                 </div>
                 <button
                     onClick={() => navigate("/")}
