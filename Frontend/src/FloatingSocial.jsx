@@ -93,29 +93,33 @@ For more details & registration, please contact us.`;
           <FaWhatsapp />
         </a>
       )}
+{open && (
+  <a
+    href="instagram://user?username=bindu.womensociety"
+    onClick={(e) => {
+      // fallback if Instagram app not installed
+      setTimeout(() => {
+        window.location.href = "https://www.instagram.com/bindu.womensociety/";
+      }, 500);
+    }}
+    style={{
+      width: subSize,
+      height: subSize,
+      borderRadius: "50%",
+      background:
+        "linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      color: "#fff",
+      fontSize: iconSub,
+      boxShadow: "0 4px 12px rgba(0,0,0,0.2)"
+    }}
+  >
+    <FaInstagram />
+  </a>
+)}
 
-      {open && (
-        <a
-          href="https://www.instagram.com/bindu.womensociety"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            width: subSize,
-            height: subSize,
-            borderRadius: "50%",
-            background:
-              "linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "#fff",
-            fontSize: iconSub,
-            boxShadow: "0 4px 12px rgba(0,0,0,0.2)"
-          }}
-        >
-          <FaInstagram />
-        </a>
-      )}
 
       {open && (
         <a

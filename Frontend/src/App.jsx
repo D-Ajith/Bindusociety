@@ -202,7 +202,7 @@ const Hero = () => {
           <h1 style={{ fontFamily: "'Playfair Display',serif", fontWeight: 900, fontSize: m ? "1.85rem" : "clamp(1.9rem,5.5vw,3rem)", background: `linear-gradient(90deg,${C.deep},${C.magenta})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", margin: "0 0 2px", lineHeight: 1.1 }}>International</h1>
           <h1 style={{ fontFamily: "'Playfair Display',serif", fontWeight: 900, fontSize: m ? "1.85rem" : "clamp(1.9rem,5.5vw,3rem)", background: `linear-gradient(90deg,${C.deep},${C.magenta})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", margin: "0 0 2px", lineHeight: 1.1 }}>Women's Day</h1>
           <p style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 600, fontSize: m ? "0.72rem" : "clamp(0.78rem,1.8vw,1rem)", color: C.deep, margin: "0 0 14px", letterSpacing: 4, textTransform: "uppercase" }}>CELEBRATIONS</p>
-          <h4 style={{ fontFamily: "'Playfair Display',serif", fontWeight: 900, fontSize: m ? "1.2rem" : "clamp(1.9rem,5.5vw,3rem)", background: `linear-gradient(90deg,${C.deep},${C.magenta})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", margin: "0 0 2px", lineHeight: 1.1 }}>🦋 Maghuvotsavam</h4>
+          <h4 style={{ fontFamily: "'Playfair Display',serif", fontWeight: 900, fontSize: m ? "1.2rem" : "clamp(1.9rem,5.5vw,3rem)", background: `linear-gradient(90deg,${C.deep},${C.magenta})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", margin: "0 0 2px", lineHeight: 1.1 }}>🦋Maghuvotsavam</h4>
           <p style={{ fontFamily: "'Poppins',sans-serif", fontSize: m ? "0.48rem" : "0.7rem", color: "#AF0062", margin: 0, letterSpacing: 3, textTransform: "uppercase" }}>ICONIC AWARD CEREMONY</p>
 
         </div>
@@ -1050,7 +1050,7 @@ export default function App() {
                 <Program />
                 <About />
                 <Contact />
-                <FloatingSocial/>
+                <FloatingSocial />
               </>
             }
           />
