@@ -15,8 +15,20 @@ export default function FloatingSocial() {
   }, []);
 
   const message =
-    "Hello! We are providing this event for Women's Day celebration. For more details contact us.";
+`Hello! 
 
+We are conducting Maghuvotsavam 2026 – International Women's Day Celebration on:
+
+📅 Saturday, March 07, 2026  
+⏰ 9 AM – 1 PM  
+📍 VMRDA Children's Arena, Siripuram, Visakhapatnam  
+
+🎉 Awards • Games • Saree Parampara • Lucky Dip Prizes  
+🍱 Snacks & Lunch Included  
+
+🎟 Registration Fee: ₹599/person  
+
+For more details & registration, please contact us.`;
   const whatsappLink =
     "https://wa.me/917997444649?text=" + encodeURIComponent(message);
 
