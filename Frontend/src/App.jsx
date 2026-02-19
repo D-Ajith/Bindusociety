@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import Terms from "./Terms";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { FiPhone, FiGlobe, FiMail, FiMapPin } from "react-icons/fi";
+import { FiPhone, FiGlobe, FiMail, FiMapPin, FiInstagram } from "react-icons/fi";
 import Ticketsection from "./Ticketsection"
-/* ─── Google Fonts ─────────────────────────────────────────────────────────── */
+import FloatingSocial from "./FloatingSocial";
 if (!document.getElementById("gf")) {
   const l = document.createElement("link");
   l.id = "gf"; l.rel = "stylesheet";
@@ -14,10 +14,10 @@ const fallbackIcons = [
   <FiPhone />,
   <FiGlobe />,
   <FiMail />,
-  <FiMapPin />
+  <FiMapPin />,
+  <FiInstagram />
 ];
 
-/* ─── Palette ───────────────────────────────────────────────────────────────── */
 const C = {
   magenta: "#C0006E",
   deep: "#8B0049",
@@ -31,7 +31,6 @@ const C = {
   mid: "#5a3048",
 };
 
-/* ─── useIsMobile ───────────────────────────────────────────────────────────── */
 const useIsMobile = () => {
   const [v, set] = useState(window.innerWidth < 768);
   useEffect(() => {
@@ -60,16 +59,13 @@ const Divider = () => (
   </div>
 );
 
-/* tag pill */
 const Tag = ({ children }) => (
   <span style={{ display: "inline-flex", alignItems: "center", gap: 6, background: `${C.magenta}0F`, border: `1px solid ${C.magenta}22`, borderRadius: 50, padding: "4px 13px", fontFamily: "'Poppins',sans-serif", fontWeight: 600, fontSize: "0.76rem", color: C.deep }}>
     <span style={{ width: 5, height: 5, borderRadius: "50%", background: C.magenta, flexShrink: 0, display: "inline-block" }} />{children}
   </span>
 );
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   NAV — hamburger on mobile, inline links on desktop
-   ═══════════════════════════════════════════════════════════════════════════ */
+
 const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -108,14 +104,12 @@ const Nav = () => {
         padding: m ? "10px 16px" : "12px clamp(24px,5vw,60px)",
         display: "flex", alignItems: "center", justifyContent: "space-between",
       }}>
-        {/* Logo */}
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <img src="https://res.cloudinary.com/dcnwphnzn/image/upload/v1771322963/502984340_17844445962497801_1109855258096356854_n.jpg_zj71e9.jpg" alt="Bindu Logo"
             style={{ width: 40, height: 40, borderRadius: "50%", objectFit: "cover" }} />
           <span style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 800, fontSize: "clamp(0.85rem,2vw,1rem)", color: scrolled || open ? C.magenta : C.deep }}>Bindu Society</span>
         </div>
 
-        {/* Desktop links */}
         {!m && (
           <div style={{ display: "flex", gap: "clamp(16px,3vw,32px)" }}>
             {links.map(l => (
@@ -127,7 +121,6 @@ const Nav = () => {
           </div>
         )}
 
-        {/* Hamburger */}
         {m && (
           <button onClick={() => setOpen(p => !p)} aria-label="Toggle menu"
             style={{ width: 42, height: 42, borderRadius: 10, background: `linear-gradient(135deg,${C.deep},${C.magenta})`, border: "none", cursor: "pointer", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: open ? 0 : 5, padding: 0, flexShrink: 0 }}>
@@ -138,10 +131,8 @@ const Nav = () => {
         )}
       </nav>
 
-      {/* Overlay */}
       {m && <div onClick={() => setOpen(false)} style={{ position: "fixed", inset: 0, zIndex: 290, background: "rgba(0,0,0,0.45)", opacity: open ? 1 : 0, pointerEvents: open ? "all" : "none", transition: "opacity .3s" }} />}
 
-      {/* Drawer */}
       {m && (
         <div ref={ref} style={{ position: "fixed", top: 0, right: 0, bottom: 0, zIndex: 295, width: "76vw", maxWidth: 300, background: C.white, transform: open ? "translateX(0)" : "translateX(110%)", transition: "transform .35s cubic-bezier(.4,0,.2,1)", boxShadow: open ? "-8px 0 40px rgba(192,0,110,0.18)" : "none", display: "flex", flexDirection: "column", overflowY: "auto" }}>
           <div style={{ background: `linear-gradient(135deg,${C.deep},${C.magenta})`, padding: "56px 22px 22px", display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
@@ -170,9 +161,7 @@ const Nav = () => {
   );
 };
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   HERO
-   ═══════════════════════════════════════════════════════════════════════════ */
+
 const Hero = () => {
   const [vis, setVis] = useState(false);
   const m = useIsMobile();
@@ -181,10 +170,7 @@ const Hero = () => {
   return (
     <section id="home" style={{ background: `linear-gradient(160deg,${C.off} 0%,#ffe3e7 45%,#f9d0eb 100%)`, minHeight: "100vh", position: "relative", overflow: "hidden", display: "flex", flexDirection: "column", alignItems: "center", padding: "0 0 25px" }}>
 
-      {/* Top bar */}
-      {/* <div style={{ width: "100%", height: 7, background: `linear-gradient(90deg,${C.deep},${C.magenta})` }} /> */}
 
-      {/* Content */}
       <div
         style={{
           position: "relative",
@@ -192,10 +178,10 @@ const Hero = () => {
           textAlign: "center",
           padding:
             m
-              ? "60px 16px 14px"          // mobile
+              ? "60px 16px 14px"
               : window.innerWidth <= 1024
-                ? "26px 24px 16px"          // tablet (reduced a lot)
-                : "44px 80px 22px",         // desktop
+                ? "26px 24px 16px"
+                : "44px 80px 22px",
           width: "100%",
           maxWidth: 640,
           boxSizing: "border-box",
@@ -205,25 +191,22 @@ const Hero = () => {
         }}
       >
 
-        {/* Logo img */}
         <img src="https://res.cloudinary.com/dcnwphnzn/image/upload/v1771322963/502984340_17844445962497801_1109855258096356854_n.jpg_zj71e9.jpg" alt="Bindu Society Logo"
           style={{ width: m ? 84 : 110, height: m ? 84 : 110, borderRadius: "50%", objectFit: "cover", margin: "0 auto 14px", display: "block" }} />
 
         <p style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 700, fontSize: m ? "0.9rem" : "clamp(1rem,2.6vw,1.25rem)", color: C.dark, margin: "0 0 2px", letterSpacing: 3, textTransform: "uppercase" }}>BINDU SOCIETY</p>
         <p style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 400, fontSize: m ? "0.75rem" : "0.88rem", color: C.mid, margin: "0 0 16px" }}>Presents</p>
 
-        {/* Title card */}
+
         <div style={{ background: "rgba(255,255,255,0.65)", borderRadius: 16, padding: m ? "14px" : "22px 34px", backdropFilter: "blur(8px)", boxShadow: "0 4px 22px rgba(192,0,110,0.11)", border: `1px solid rgba(192,0,110,0.13)`, marginBottom: 16 }}>
           <h1 style={{ fontFamily: "'Playfair Display',serif", fontWeight: 900, fontSize: m ? "1.85rem" : "clamp(1.9rem,5.5vw,3rem)", background: `linear-gradient(90deg,${C.deep},${C.magenta})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", margin: "0 0 2px", lineHeight: 1.1 }}>International</h1>
           <h1 style={{ fontFamily: "'Playfair Display',serif", fontWeight: 900, fontSize: m ? "1.85rem" : "clamp(1.9rem,5.5vw,3rem)", background: `linear-gradient(90deg,${C.deep},${C.magenta})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", margin: "0 0 2px", lineHeight: 1.1 }}>Women's Day</h1>
           <p style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 600, fontSize: m ? "0.72rem" : "clamp(0.78rem,1.8vw,1rem)", color: C.deep, margin: "0 0 14px", letterSpacing: 4, textTransform: "uppercase" }}>CELEBRATIONS</p>
-          {/* Maghuvotsavam pill */}
-          <h2 style={{ fontFamily: "'Playfair Display',serif", fontWeight: 900, fontStyle: "italic", fontSize: m ? "1.15rem" : "clamp(1.2rem,4vw,2rem)", color: "#AF0062", margin: 0 }}>Maghuvotsavam</h2>
+          <h4 style={{ fontFamily: "'Playfair Display',serif", fontWeight: 900, fontSize: m ? "1.2rem" : "clamp(1.9rem,5.5vw,3rem)", background: `linear-gradient(90deg,${C.deep},${C.magenta})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", margin: "0 0 2px", lineHeight: 1.1 }}>🦋 Maghuvotsavam</h4>
           <p style={{ fontFamily: "'Poppins',sans-serif", fontSize: m ? "0.48rem" : "0.7rem", color: "#AF0062", margin: 0, letterSpacing: 3, textTransform: "uppercase" }}>ICONIC AWARD CEREMONY</p>
 
         </div>
 
-        {/* Chief Guest */}
         <p style={{ fontFamily: "'Poppins',sans-serif", fontStyle: "italic", fontSize: m ? "0.74rem" : "0.9rem", color: C.mid, margin: "0 0 10px" }}>In The Presence of</p>
 
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 9, marginBottom: 18 }}>
@@ -236,7 +219,6 @@ const Hero = () => {
           <p style={{ fontFamily: "'Poppins',sans-serif", fontSize: m ? "0.66rem" : "0.78rem", color: C.mid, margin: "-4px 0 0" }}>(Hon'ble Home Minister, Government of Andhra Pradesh)</p>
         </div>
 
-        {/* Event info */}
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexWrap: "wrap", gap: m ? 8 : 16, background: C.white, borderRadius: 12, padding: m ? "11px 12px" : "15px 26px", boxShadow: "0 4px 18px rgba(192,0,110,0.11)", marginBottom: 12 }}>
           {[{ t: "SATURDAY" }, { t: "MARCH 07, 2026", sep: true }, { t: "9 AM – 1 PM" }].map((d, i) => (
             <div key={i} style={{ display: "flex", alignItems: "center", gap: 5 }}>
@@ -253,20 +235,16 @@ const Hero = () => {
         <Ticketsection />
       </div>
 
-      {/* Wave */}
     </section>
   );
 };
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   ABOUT
-   ═══════════════════════════════════════════════════════════════════════════ */
+
 const About = () => {
   const m = useIsMobile();
   return (
     <section id="about" style={{ background: C.white, padding: m ? "36px 16px" : "clamp(44px,7vw,76px) clamp(20px,7vw,76px)" }}>
       <div style={{ maxWidth: 1060, margin: "0 auto" }}>
-        {/* Society card */}
         <div style={{ background: `linear-gradient(135deg,${C.off},#fff)`, borderRadius: 16, padding: m ? "18px 14px" : "clamp(20px,4vw,36px)", marginBottom: 20, boxShadow: "0 4px 24px rgba(192,0,110,0.07)", border: `1px solid ${C.magenta}13` }}>
           <SH>About Bindu Society</SH>
           <div style={{ display: "flex", flexDirection: m ? "column" : "row", gap: m ? 14 : 24, alignItems: "flex-start" }}>
@@ -288,12 +266,11 @@ const About = () => {
           </div>
         </div>
 
-        {/* Founder card */}
         <div style={{ background: `linear-gradient(135deg,#fff9fc,#fff0f8)`, borderRadius: 16, padding: m ? "18px 14px" : "clamp(20px,4vw,36px)", boxShadow: "0 4px 24px rgba(192,0,110,0.07)", border: `1px solid ${C.magenta}13` }}>
           <SH>About The Founder – Srmt. Hima Bindu</SH>
           <div style={{ display: "flex", flexDirection: m ? "column" : "row", gap: m ? 14 : 24, alignItems: "flex-start" }}>
-            <img src="/images/founder.jpg" alt="Srmt. Hima Bindu – Founder"
-              style={{ width: m ? 80 : 110, height: m ? 80 : 110, borderRadius: "50%", objectFit: "cover", flexShrink: 0 }} />
+            <img src="https://res.cloudinary.com/dcnwphnzn/image/upload/v1771484810/EYE00039_xcejgr.jpg" alt="Srmt. Hima Bindu – Founder"
+              style={{ width: m ? 80 : 110, height: m ? 80 : 110, borderRadius: "50%", objectFit: "cover", objectPosition: "center top", flexShrink: 0 }} />
             <div style={{ flex: 1 }}>
               <p style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 400, fontSize: m ? "0.79rem" : "0.92rem", color: C.mid, lineHeight: 1.78, margin: "0 0 14px" }}>
                 Srmt. Hima Bindu, Managing Director of iQube Business Solutions, has mentored <strong>200+ entrepreneurs</strong> and supports women and first-generation business owners through MSME guidance and business development.              </p>
@@ -312,9 +289,7 @@ const About = () => {
   );
 };
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   PROGRAM ACTIVITIES
-   ═══════════════════════════════════════════════════════════════════════════ */
+
 const Program = () => {
   const m = useIsMobile();
 
@@ -329,7 +304,6 @@ const Program = () => {
       <div style={{ maxWidth: 1060, margin: "0 auto" }}>
         <SH>Program Activities</SH>
 
-        {/* 3 activity image cards */}
         <div
           style={{
             display: "grid",
@@ -350,7 +324,6 @@ const Program = () => {
                 transition: "transform .25s ease, box-shadow .25s ease",
                 cursor: "pointer",
 
-                // same card height
                 height: m ? 200 : "clamp(260px,28vw,340px)",
                 display: "flex",
                 flexDirection: "column"
@@ -368,7 +341,6 @@ const Program = () => {
                 }
               }}
             >
-              {/* IMAGE - takes most space */}
               <div
                 style={{
                   position: "relative",
@@ -387,11 +359,9 @@ const Program = () => {
                     transition: "transform .4s ease, filter .3s ease"
                   }}
 
-                  // hover zoom
                   onMouseEnter={e => !m && (e.currentTarget.style.transform = "scale(1.12)")}
                   onMouseLeave={e => !m && (e.currentTarget.style.transform = "scale(1)")}
 
-                  // 🔥 click press + flash effect
                   onMouseDown={e => {
                     e.currentTarget.style.transform = "scale(0.95)";
                     e.currentTarget.style.filter = "brightness(1.15)";
@@ -401,7 +371,6 @@ const Program = () => {
                     e.currentTarget.style.filter = "brightness(1)";
                   }}
 
-                  // mobile tap effect
                   onTouchStart={e => {
                     e.currentTarget.style.transform = "scale(0.96)";
                     e.currentTarget.style.filter = "brightness(1.1)";
@@ -412,7 +381,6 @@ const Program = () => {
                   }}
                 />
 
-                {/* gradient overlay */}
                 <div
                   style={{
                     position: "absolute",
@@ -425,7 +393,6 @@ const Program = () => {
               </div>
 
 
-              {/* SMALL LABEL */}
               <div
                 style={{
                   padding: m ? "6px 6px" : "10px 10px",
@@ -453,7 +420,6 @@ const Program = () => {
 
 
 
-        {/* Saree Parampara */}
         <div
           style={{
             background: C.white,
@@ -462,14 +428,11 @@ const Program = () => {
             border: `1px solid ${C.magenta}14`
           }}
         >
-          {/* IMAGE SECTION */}
           <div
             style={{
               position: "relative",
               width: "100%",
               overflow: "hidden",
-
-              // 🔥 important — remove bottom curve
               borderTopLeftRadius: 16,
               borderTopRightRadius: 16
             }}
@@ -486,7 +449,6 @@ const Program = () => {
                 transition: "transform .5s ease, filter .4s ease"
               }}
 
-              // 🔥 hover effect
               onMouseEnter={e => {
                 e.currentTarget.style.transform = "scale(1.06)";
                 e.currentTarget.style.filter = "brightness(1.05)";
@@ -496,7 +458,6 @@ const Program = () => {
                 e.currentTarget.style.filter = "brightness(1)";
               }}
 
-              // 🔥 click press effect
               onMouseDown={e => {
                 e.currentTarget.style.transform = "scale(0.97)";
               }}
@@ -505,7 +466,6 @@ const Program = () => {
               }}
             />
 
-            {/* overlay gradient */}
             <div
               style={{
                 position: "absolute",
@@ -576,9 +536,7 @@ const Program = () => {
   );
 };
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   EVENT HIGHLIGHTS  (Lucky Dip + Awards)
-   ═══════════════════════════════════════════════════════════════════════════ */
+
 const Highlights = () => {
   const m = useIsMobile();
 
@@ -603,10 +561,8 @@ const Highlights = () => {
     <section id="highlights" style={{ background: `linear-gradient(160deg,${C.white} 0%,#fce4f3 100%)`, padding: m ? "36px 16px" : "clamp(44px,7vw,76px) clamp(20px,7vw,76px)" }}>
       <div style={{ maxWidth: 1060, margin: "0 auto" }}>
 
-        {/* ── Mega Lucky Dip ── */}
         <div style={{ display: "grid", gridTemplateColumns: m ? "1fr" : "1fr 1.45fr", gap: m ? 18 : 26, marginBottom: m ? 24 : 44 }}>
 
-          {/* Dip hero card */}
           <div>
             <SH>Mega Lucky Dip</SH>
             <div
@@ -623,10 +579,7 @@ const Highlights = () => {
                 alt="Mega Lucky Dip"
                 style={{
                   width: "100%",
-
-                  // 🔥 image occupies more card height
                   height: m ? 170 : "clamp(240px,32vw,340px)",
-
                   objectFit: "cover",
                   objectPosition: "center",
                   display: "block"
@@ -674,7 +627,6 @@ const Highlights = () => {
 
           </div>
 
-          {/* Prize grid */}
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
               <div>
@@ -701,8 +653,6 @@ const Highlights = () => {
                     border: `1px solid ${C.magenta}14`,
                     transition: "transform .25s ease, box-shadow .25s ease",
                     cursor: "pointer",
-
-                    // 🔥 taller card
                     height: m ? 150 : 220,
                     display: "flex",
                     flexDirection: "column"
@@ -716,17 +666,13 @@ const Highlights = () => {
                     e.currentTarget.style.boxShadow = "0 6px 22px rgba(192,0,110,0.12)";
                   }}
                 >
-                  {/* IMAGE */}
                   <div style={{ overflow: "hidden" }}>
                     <img
                       src={p.img}
                       alt={p.name}
                       style={{
                         width: "100%",
-
-                        // 🔥 larger image
                         height: m ? 110 : 160,
-
                         objectFit: "cover",
                         display: "block",
                         transition: "transform .5s ease, filter .5s ease"
@@ -742,7 +688,6 @@ const Highlights = () => {
                     />
                   </div>
 
-                  {/* LABEL */}
                   <div
                     style={{
                       padding: m ? "8px 6px" : "12px 10px",
@@ -769,11 +714,9 @@ const Highlights = () => {
           </div>
         </div>
 
-        {/* ── Women Shakthi Iconic Awards ── */}
         <div style={{ background: "#ffffff", borderRadius: 16, overflow: "hidden" }}>
           <div style={{ display: "grid", gridTemplateColumns: m ? "1fr" : "minmax(210px,300px) 1fr" }}>
 
-            {/* Trophy / awards image */}
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: m ? "22px 16px 16px" : "40px 28px", borderBottom: m ? "1px solid rgba(255,255,255,0.14)" : "none", borderRight: m ? "none" : "1px solid rgba(255,255,255,0.14)", gap: 14 }}>
               <img
                 src="https://wweawards.com/assets/images/experties/img3.jpg"
@@ -792,7 +735,6 @@ const Highlights = () => {
               <p style={{ fontFamily: "'Poppins',sans-serif", fontSize: m ? "0.69rem" : "0.82rem", color: "#A20F40", lineHeight: 1.65, textAlign: "center", margin: 0 }}>Honouring inspiring women for excellence in entrepreneurship, leadership and service.</p>
             </div>
 
-            {/* Categories */}
             <div style={{ padding: m ? "16px 14px" : "28px 22px" }}>
               <p style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 700, fontSize: m ? "0.75rem" : "0.9rem", color: "#A20F40", margin: "0 0 12px", display: "flex", alignItems: "center", gap: 6 }}>⭐ Award Categories Include:</p>
               <div style={{ display: "grid", gridTemplateColumns: m ? "1fr 1fr" : "repeat(auto-fill,minmax(160px,1fr))", gap: m ? 6 : 9 }}>
@@ -811,9 +753,7 @@ const Highlights = () => {
   );
 };
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   THANK YOU  /  CONTACT
-   ═══════════════════════════════════════════════════════════════════════════ */
+
 const Contact = () => {
   const m = useIsMobile();
 
@@ -824,6 +764,7 @@ const Contact = () => {
     { logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkmdum5O0MLrH_LxCI94Qxa5-1Aao2r8NDEg&s" },
     { logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAftd1yw25ZzY4Gvrbsxvn2iggWdG-jNaD1w&s" },
     { logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuRR9Rddfxlb8Z_tPlV3d-g_6lv32flYYFSg&s" },
+    { logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShJmhWEYD5RqWfIRJShYcr97_xXrxqzXBsbQ&s" }
   ];
 
 
@@ -831,6 +772,7 @@ const Contact = () => {
     { icon: "/images/icon-phone.png", text: "+91 7997444649" },
     { icon: "/images/icon-web.png", text: "www.bindusociety.in" },
     { icon: "/images/icon-email.png", text: "bindu.womensociety@gmail.com" },
+    { icon: "/images/icon-instagram.png", text: "Bindu Women Society Instagram", link: "https://www.instagram.com/bindu.womensociety" },
     { icon: "/images/icon-location.png", text: "VMRDA Children's Arena, Siripuram, Visakhapatnam, Andhra Pradesh" },
   ];
 
@@ -839,11 +781,9 @@ const Contact = () => {
 
       <div style={{ maxWidth: 720, margin: "0 auto", position: "relative", zIndex: 2 }}>
 
-        {/* Logo */}
         <img src="https://res.cloudinary.com/dcnwphnzn/image/upload/v1771322963/502984340_17844445962497801_1109855258096356854_n.jpg_zj71e9.jpg" alt="Bindu Society"
           style={{ width: m ? 70 : 92, height: m ? 70 : 92, borderRadius: "50%", objectFit: "cover", margin: "0 auto 14px", display: "block" }} />
 
-        {/* Thank You */}
         <h2 style={{ fontFamily: "'Great Vibes',cursive", fontSize: m ? "2.8rem" : "clamp(2.8rem,7vw,4.8rem)", color: C.magenta, margin: "0 0 6px", lineHeight: 1 }}>Thank You</h2>
 
         <Divider />
@@ -858,7 +798,6 @@ const Contact = () => {
           <p style={{ fontFamily: "'Poppins',sans-serif", fontStyle: "italic", fontSize: m ? "0.69rem" : "0.82rem", color: C.mid, margin: 0 }}>Empowering Women Through Entrepreneurship, Leadership, and Community Growth</p>
         </div>
 
-        {/* Sponsor logo cards */}
         <div
           style={{
             display: "grid",
@@ -873,7 +812,7 @@ const Contact = () => {
             <div
               key={i}
               style={{
-                width: m ? 90 : 130,   // 🔥 same width for all logos
+                width: m ? 90 : 130,
                 height: m ? 50 : 70,
                 display: "flex",
                 alignItems: "center",
@@ -890,7 +829,6 @@ const Contact = () => {
                   transition: "transform .25s ease, filter .25s ease"
                 }}
 
-                // hover effect
                 onMouseEnter={e => {
                   e.currentTarget.style.transform = "scale(1.08)";
                   e.currentTarget.style.filter = "brightness(1.05)";
@@ -905,7 +843,6 @@ const Contact = () => {
             </div>
           ))}
         </div>
-        {/* Contact card */}
         <div
           style={{
             background: C.white,
@@ -925,32 +862,25 @@ const Contact = () => {
             }}
           >
             {contacts.map((c, i) => {
-              const icons = [<FiPhone />, <FiGlobe />, <FiMail />, <FiMapPin />];
+              const icons = [<FiPhone />, <FiGlobe />, <FiMail />, <FiInstagram />, <FiMapPin />];
 
-              let link = null;
+              let link = c.link || null;
 
-              // PHONE
-              // PHONE → open dialer
-              if (/^\+?\d[\d\s-]{7,}$/.test(c.text.trim())) {
-                link = `tel:${c.text.replace(/\s/g, "")}`;
+              if (!link) {
+                if (/^\+?\d[\d\s-]{7,}$/.test(c.text.trim())) {
+                  link = `tel:${c.text.replace(/\s/g, "")}`;
+                }
+                else if (c.text.includes("@")) {
+                  link = `mailto:${c.text}`;
+                }
+                else if (c.text.includes("http") || c.text.includes("www")) {
+                  link = c.text.startsWith("http") ? c.text : `https://${c.text}`;
+                }
+                else {
+                  link = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(c.text)}`;
+                }
               }
 
-              // EMAIL
-              else if (c.text.includes("@")) {
-                link = `mailto:${c.text}`;
-              }
-
-              // WEBSITE
-              else if (c.text.includes("http") || c.text.includes("www")) {
-                link = c.text.startsWith("http") ? c.text : `https://${c.text}`;
-              }
-
-              // LOCATION → Google Maps
-              else {
-                link = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                  c.text
-                )}`;
-              }
 
               return (
                 <a
@@ -966,7 +896,6 @@ const Contact = () => {
                     cursor: "pointer"
                   }}
                 >
-                  {/* Icon */}
                   <div
                     style={{
                       width: m ? 30 : 36,
@@ -985,7 +914,6 @@ const Contact = () => {
                     {icons[i]}
                   </div>
 
-                  {/* Text */}
                   <p
                     style={{
                       fontFamily: "'Poppins',sans-serif",
@@ -1014,11 +942,10 @@ const Contact = () => {
             borderRadius: 12
           }}
         >
-          {/* Registration fee */}
           <p
             style={{
               fontFamily: "'Poppins',sans-serif",
-              fontSize: "0.58rem",   // reduced
+              fontSize: "0.58rem",
               letterSpacing: 1,
               color: "#7a4060",
               margin: 0,
@@ -1032,7 +959,7 @@ const Contact = () => {
           <p
             style={{
               fontFamily: "'Poppins',sans-serif",
-              fontSize: "1.6rem",   // reduced from 2rem
+              fontSize: "1.6rem",
               fontWeight: 800,
               color: "#C0006E",
               margin: "4px 0 12px",
@@ -1042,7 +969,7 @@ const Contact = () => {
             ₹599
             <span
               style={{
-                fontSize: "0.7rem",   // reduced
+                fontSize: "0.7rem",
                 fontWeight: 500,
                 color: "#7a4060"
               }}
@@ -1051,7 +978,6 @@ const Contact = () => {
             </span>
           </p>
 
-          {/* Razorpay button */}
           <a
             href="https://rzp.io/rzp/vRIXO9g"
             target="_blank"
@@ -1063,12 +989,12 @@ const Contact = () => {
               gap: 8,
               background: "linear-gradient(135deg,#C0006E,#8b0050)",
               color: "#fff",
-              padding: "12px 22px", // slightly smaller
+              padding: "12px 22px",
               borderRadius: 12,
               textDecoration: "none",
               fontFamily: "'Poppins',sans-serif",
               fontWeight: 700,
-              fontSize: "0.82rem",  // reduced
+              fontSize: "0.82rem",
               boxShadow: "0 6px 18px rgba(192,0,110,0.25)"
             }}
           >
@@ -1077,7 +1003,6 @@ const Contact = () => {
         </section>
 
 
-        {/* Noble cause */}
         <div style={{ background: `${C.magenta}0C`, borderRadius: 9, padding: m ? "10px 13px" : "13px 22px", border: `1px solid ${C.magenta}1C` }}>
           <p style={{ fontFamily: "'Poppins',sans-serif", fontStyle: "italic", fontWeight: 500, fontSize: m ? "0.69rem" : "0.82rem", color: C.deep, margin: 0 }}>"For a noble cause: Funds raised will support Bindu Society's charity initiatives"</p>
         </div>
@@ -1103,22 +1028,18 @@ const Contact = () => {
         </a>
       </section>
 
-      {/* Bottom bar */}
-      {/* <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, background: `linear-gradient(90deg,${C.deep},${C.magenta})`, height: 7 }} /> */}
+
     </section>
   );
 };
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   APP
-   ═══════════════════════════════════════════════════════════════════════════ */
+
 export default function App() {
   return (
     <div style={{ fontFamily: "'Poppins',sans-serif", overflowX: "hidden" }}>
       <BrowserRouter>
         <Routes>
 
-          {/* Main landing page */}
           <Route
             path="/"
             element={
@@ -1127,14 +1048,12 @@ export default function App() {
                 <Hero />
                 <Highlights />
                 <Program />
-                {/* <Sponsorship /> */}
                 <About />
                 <Contact />
+                <FloatingSocial/>
               </>
             }
           />
-
-          {/* Terms page only */}
           <Route path="/terms" element={<Terms />} />
 
         </Routes>

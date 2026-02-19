@@ -14,16 +14,12 @@ export default function App() {
     return (
         <section
             className={`flex items-start justify-center relative overflow-hidden ${m ? "pt-3 pb-2 px-3" : "pt-5 pb-3 px-5"}`} id="ticket">
-            {/* BG blobs */}
 
 
-            {/* Ticket wrapper */}
             <div className="relative z-10 w-full" style={{ maxWidth: 520 }}>
 
-                {/* ── TICKET CARD ── */}
                 <div className="rounded-2xl overflow-hidden" >
 
-                    {/* HEADER */}
                     <div
                         className="relative overflow-hidden"
                         style={{
@@ -32,7 +28,6 @@ export default function App() {
 
                         }}
                     >
-                        {/* Decorative rings */}
                         {[80, 130, 190, 260].map((size, i) => (
                             <div
                                 key={i}
@@ -45,31 +40,26 @@ export default function App() {
                             />
                         ))}
 
-                        {/* Badge */}
                         <div className="flex items-center gap-2 relative z-10" style={{ marginBottom: 6 }}>
 
                         </div>
 
-                        {/* Title */}
                         <h1 className="relative z-10" style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 800, fontSize: m ? "1.35rem" : "1.9rem", color: "#fff", lineHeight: 1.2, letterSpacing: -0.5, margin: 0 }}>
-                            🌸 Maghuvotsavam 2026
+                            🦋 Maghuvotsavam 2026 
                         </h1>
                         <p className="relative z-10" style={{ fontFamily: "'Poppins',sans-serif", fontSize: m ? "0.72rem" : "0.85rem", color: "rgba(255,255,255,0.72)", marginTop: 6, marginBottom: 0 }}>
                             ICONIC INTERNATIONAL WOMEN’ S DAY AWARD CEREMONY
                         </p>
                     </div>
 
-                    {/* TEAR LINE */}
                     <div className="relative flex items-center" style={{ height: 0 }}>
                         <div className="absolute rounded-full z-10" style={{ left: -14, width: 28, height: 28, background: "#1a0a12" }} />
                         <div className="absolute rounded-full z-10" style={{ right: -14, width: 28, height: 28, background: "#1a0a12" }} />
                         <div className="w-full" style={{ borderTop: "2px dashed #f0c0d8", marginLeft: 14, marginRight: 14 }} />
                     </div>
 
-                    {/* BODY */}
                     <div style={{ background: "#fff8fc", padding: m ? "14px 14px" : "20px 26px" }}>
 
-                        {/* Registration Kit */}
                         <div
                             className="rounded-xl"
                             style={{ background: "#fff", border: "1px solid #f5d6e8", padding: m ? "12px 14px" : "16px 20px", marginBottom: 18, boxShadow: "0 2px 10px rgba(192,0,110,0.07)" }}
@@ -96,10 +86,8 @@ export default function App() {
                             </div>
                         </div>
 
-                        {/* Divider */}
                         <div style={{ borderTop: "1px dashed #f0c0d8", marginBottom: 18 }} />
 
-                        {/* Fee + CTA */}
                         <div
                             className="flex items-center justify-center flex-wrap"
                             style={{
@@ -110,7 +98,7 @@ export default function App() {
                         >
                             <div>
                                 <p style={{ fontFamily: "'Poppins',sans-serif", fontSize: m ? "0.6rem" : "0.7rem", color: "#7a4060", fontWeight: 500, textTransform: "uppercase", letterSpacing: 1, margin: 0 }}>
-                                    Registration Fee
+                                  🎀  Registration Fee
                                 </p>
                                 <p style={{ fontFamily: "'Poppins',sans-serif", fontSize: m ? "1.5rem" : "2rem", fontWeight: 800, color: "#C0006E", lineHeight: 1, marginTop: 2 }}>
                                     ₹599
@@ -118,7 +106,6 @@ export default function App() {
                                 </p>
                             </div>
 
-                            {/* 🔗 Replace href with your Razorpay link */}
                             <a
                                 href="https://rzp.io/rzp/vRIXO9g"
                                 target="_blank"
@@ -140,9 +127,8 @@ export default function App() {
                             </a>
                         </div>
 
-                    </div>{/* /BODY */}
-
-                    {/* FOOTER STRIP */}
+                    </div>
+                  
                     <div
                         className="flex items-center justify-between flex-wrap"
                         style={{ background: "linear-gradient(135deg, #2d0a1e 0%, #C0006E 100%)", padding: m ? "10px 16px" : "12px 32px", gap: 6 }}
@@ -160,14 +146,14 @@ export default function App() {
                         </span>
                     </div>
 
-                </div>{/* /TICKET CARD */}
+                </div>
 
-                {/* Caption */}
+                
                 <p className="text-center mt-2" style={{ fontFamily: "'Poppins',sans-serif", color: "#8B0049", fontSize: m ? "0.6rem" : "0.7rem", letterSpacing: 1 }}>
                     Spots are limited · Register before they're gone
                 </p>
 
-            </div>{/* /wrapper */}
+            </div>
 
             <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
         </section>

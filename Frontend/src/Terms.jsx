@@ -100,17 +100,16 @@ const sections = [
     
 ];
 
-// ── Centralized color palette ──────────────────────────────────────────────
 const C = {
-    darkPink: "#8B0049",   // deep/dark pink – primary brand color
-    midPink: "#C2185B",   // medium pink – secondary accent
-    accentPink: "#E91E8C",   // vibrant accent pink
-    softPink: "#F8BBD9",   // soft pink – borders
-    lightPink: "#FCE4EC",   // light pink – backgrounds
-    palePink: "#FFF0F6",   // very pale pink – page background
+    darkPink: "#8B0049",   
+    midPink: "#C2185B",   
+    accentPink: "#E91E8C",  
+    softPink: "#F8BBD9",   
+    lightPink: "#FCE4EC",   
+    palePink: "#FFF0F6",   
     white: "#FFFFFF",
-    deepText: "#4A0028",   // dark pink-tinted text
-    mutedText: "#8B4060",   // muted pink text
+    deepText: "#4A0028",   
+    mutedText: "#8B4060",   
 };
 
 export default function Terms() {
@@ -131,7 +130,6 @@ export default function Terms() {
             }}
         >
 
-            {/* ── Header ── */}
             <header
                 style={{
                     textAlign: "center",
@@ -140,7 +138,6 @@ export default function Terms() {
                     background: `linear-gradient(180deg, rgba(139,0,73,0.05) 0%, transparent 100%)`,
                 }}
             >
-                {/* Subtle radial glow */}
                 <div
                     style={{
                         position: "absolute",
@@ -155,7 +152,6 @@ export default function Terms() {
                     }}
                 />
 
-                {/* Society badge */}
                 <div
                     style={{
                         display: "inline-block",
@@ -175,7 +171,6 @@ export default function Terms() {
                     Bindu Women Entrepreneur Society
                 </div>
 
-                {/* Page title */}
                 <h1
                     style={{
                         fontSize: "clamp(1.8rem, 5vw, 3.2rem)",
@@ -203,7 +198,6 @@ export default function Terms() {
                     International Celebrations & Iconic Award Ceremony
                 </h2>
 
-                {/* Venue */}
                 <div
                     style={{
                         display: "flex",
@@ -219,7 +213,6 @@ export default function Terms() {
                     <span>VMRDA Children's Arena, Siripuram, Visakhapatnam</span>
                 </div>
 
-                {/* Ornamental divider */}
                 <div
                     style={{
                         display: "flex",
@@ -235,7 +228,6 @@ export default function Terms() {
                 </div>
             </header>
 
-            {/* ── Intro notice ── */}
             <div style={{ maxWidth: "860px", margin: "0 auto 2.5rem", padding: "0 1.5rem" }}>
                 <div
                     style={{
@@ -254,7 +246,6 @@ export default function Terms() {
                 </div>
             </div>
 
-            {/* ── Accordion Sections ── */}
             <main style={{ maxWidth: "860px", margin: "0 auto", padding: "0 1.5rem 4rem" }}>
                 {sections.map((section, idx) => (
                     <div
@@ -273,7 +264,6 @@ export default function Terms() {
                                 : `0 1px 6px rgba(139,0,73,0.05)`,
                         }}
                     >
-                        {/* Section button */}
                         <button
                             onClick={() => toggle(section.id)}
                             style={{
@@ -324,7 +314,6 @@ export default function Terms() {
                             </span>
                         </button>
 
-                        {/* Expanded content */}
                         {openSection === section.id && (
                             <div
                                 style={{
@@ -364,10 +353,8 @@ export default function Terms() {
                     </div>
                 ))}
 
-                {/* ── Agreement Section ── */}
 
 
-                {/* ── Footer note ── */}
                 <div
                     style={{
                         marginTop: "2rem",
