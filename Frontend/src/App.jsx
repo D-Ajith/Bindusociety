@@ -267,13 +267,13 @@ const About = () => {
         </div>
 
         <div style={{ background: `linear-gradient(135deg,#fff9fc,#fff0f8)`, borderRadius: 16, padding: m ? "18px 14px" : "clamp(20px,4vw,36px)", boxShadow: "0 4px 24px rgba(192,0,110,0.07)", border: `1px solid ${C.magenta}13` }}>
-          <SH>About The Founder – Srmt. Hima Bindu</SH>
+          <SH>About The Founder – Smt. Hima Bindu</SH>
           <div style={{ display: "flex", flexDirection: m ? "column" : "row", gap: m ? 14 : 24, alignItems: "flex-start" }}>
-            <img src="https://res.cloudinary.com/dcnwphnzn/image/upload/v1771484810/EYE00039_xcejgr.jpg" alt="Srmt. Hima Bindu – Founder"
+            <img src="https://res.cloudinary.com/dcnwphnzn/image/upload/v1771484810/EYE00039_xcejgr.jpg" alt="Smt. Hima Bindu – Founder"
               style={{ width: m ? 80 : 110, height: m ? 80 : 110, borderRadius: "50%", objectFit: "cover", objectPosition: "center top", flexShrink: 0 }} />
             <div style={{ flex: 1 }}>
               <p style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 400, fontSize: m ? "0.79rem" : "0.92rem", color: C.mid, lineHeight: 1.78, margin: "0 0 14px" }}>
-                Srmt. Hima Bindu, Managing Director of iQube Business Solutions, has mentored <strong>200+ entrepreneurs</strong> and supports women and first-generation business owners through MSME guidance and business development.              </p>
+                Smt. Hima Bindu, Managing Director of iQube Business Solutions, has mentored <strong>200+ entrepreneurs</strong> and supports women and first-generation business owners through MSME guidance and business development.              </p>
 
               <div style={{ display: "flex", flexWrap: "wrap", gap: 7 }}>
                 {["M.A.", "200+ Guided", "MSME", "MD – iQube", "Women Advocate"].map(t => (
