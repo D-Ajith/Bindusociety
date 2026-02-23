@@ -31,8 +31,9 @@ We are conducting Maghuvotsavam 2026 - International Women's Day Celebration ðŸ’
 https://bindusociety.vercel.app/
 
 ðŸ“ž Contact us for more details & registration`;
-  const whatsappLink =
-    "https://wa.me/917997444649?text=" + encodeURIComponent(message);
+ const whatsappLink =
+  "https://api.whatsapp.com/send?phone=917997444649&text=" +
+  encodeURIComponent(message);
 
   const razorpayLink = "https://rzp.io/rzp/vRIXO9g";
 

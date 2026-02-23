@@ -217,7 +217,7 @@ const Hero = () => {
           <span style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 900, fontSize: m ? "0.9rem" : "1.2rem", color: "#a20f40", letterSpacing: 2, textTransform: "uppercase" }}>✦ CHIEF GUEST ✦</span>
 
           <p style={{ fontFamily: "'Playfair Display',serif", fontWeight: 700, fontSize: m ? "0.95rem" : "clamp(0.98rem,2.5vw,1.3rem)", color: C.dark, margin: 0 }}>Smt. Vangalapudi Anitha</p>
-          <p style={{ fontFamily: "'Poppins',sans-serif", fontSize: m ? "0.66rem" : "0.78rem", color: C.mid, margin: "-4px 0 0" }}>(Hon'ble Home Minister, Government of <br/> Andhra Pradesh)</p>
+          <p style={{ fontFamily: "'Poppins',sans-serif", fontSize: m ? "0.66rem" : "0.78rem", color: C.mid, margin: "-4px 0 0" }}>(Hon'ble Home Minister, Government of <br /> Andhra Pradesh)</p>
         </div>
 
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexWrap: "wrap", gap: m ? 8 : 16, background: C.white, borderRadius: 12, padding: m ? "11px 12px" : "15px 26px", boxShadow: "0 4px 18px rgba(192,0,110,0.11)", marginBottom: 12 }}>
@@ -286,6 +286,7 @@ const About = () => {
           </div>
         </div>
       </div>
+      <RazorpayButton />
     </section>
   );
 };
@@ -417,7 +418,7 @@ const Program = () => {
             </div>
           ))}
         </div>
-         <RazorpayButton/>
+        <RazorpayButton />
 
 
 
@@ -711,7 +712,7 @@ const Highlights = () => {
                 </div>
               ))}
             </div>
-<RazorpayButton/>
+            <RazorpayButton />
           </div>
         </div>
 
