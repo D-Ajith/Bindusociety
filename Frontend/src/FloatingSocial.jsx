@@ -14,21 +14,23 @@ export default function FloatingSocial() {
     return () => window.removeEventListener("resize", check);
   }, []);
 
-  const message =
-`Hello! 
+  const message = `Hello! 👋
 
-We are conducting Maghuvotsavam 2026 – International Women's Day Celebration on:
+We are conducting Maghuvotsavam 2026 - International Women's Day Celebration 💐
 
-📅 Saturday, March 07, 2026  
-⏰ 9 AM – 1 PM  
-📍 VMRDA Children's Arena, Siripuram, Visakhapatnam  
+📅 Date: Saturday, March 07, 2026
+⏰ Time: 9 AM - 1 PM
+📍 Venue: VMRDA Children's Arena, Siripuram, Visakhapatnam
 
-🎉 Awards • Games • Saree Parampara • Lucky Dip Prizes  
-🍱 Snacks & Lunch Included  
+🎉 Awards | 🎮 Games | 👗 Saree Parampara | 🎁 Lucky Dip Prizes
+🍱 Snacks & Lunch Included
 
-🎟 Registration Fee: ₹599/person  
+🎟 Registration Fee: Rs.599/person
 
-For more details & registration, please contact us.`;
+🔗 Register here:
+https://bindusociety.vercel.app/
+
+📞 Contact us for more details & registration`;
   const whatsappLink =
     "https://wa.me/917997444649?text=" + encodeURIComponent(message);
 
@@ -93,7 +95,7 @@ For more details & registration, please contact us.`;
           <FaWhatsapp />
         </a>
       )}
-{open && ( <a href="https://www.instagram.com/bindu.womensociety" target="_blank" rel="noopener noreferrer" style={{ width: subSize, height: subSize, borderRadius: "50%", background: "linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7)", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: iconSub, boxShadow: "0 4px 12px rgba(0,0,0,0.2)" }} > <FaInstagram /> </a> )}
+      {open && (<a href="https://www.instagram.com/bindu.womensociety" target="_blank" rel="noopener noreferrer" style={{ width: subSize, height: subSize, borderRadius: "50%", background: "linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7)", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: iconSub, boxShadow: "0 4px 12px rgba(0,0,0,0.2)" }} > <FaInstagram /> </a>)}
 
 
       {open && (

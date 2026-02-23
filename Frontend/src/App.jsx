@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { FiPhone, FiGlobe, FiMail, FiMapPin, FiInstagram } from "react-icons/fi";
 import Ticketsection from "./Ticketsection"
 import FloatingSocial from "./FloatingSocial";
+import RazorpayButton from "./RazorpayButton";
 if (!document.getElementById("gf")) {
   const l = document.createElement("link");
   l.id = "gf"; l.rel = "stylesheet";
@@ -191,11 +192,11 @@ const Hero = () => {
         }}
       >
 
-        <img src="https://res.cloudinary.com/dcnwphnzn/image/upload/v1771322963/502984340_17844445962497801_1109855258096356854_n.jpg_zj71e9.jpg" alt="Bindu Society Logo"
+        {/* <img src="https://res.cloudinary.com/dcnwphnzn/image/upload/v1771322963/502984340_17844445962497801_1109855258096356854_n.jpg_zj71e9.jpg" alt="Bindu Society Logo"
           style={{ width: m ? 84 : 110, height: m ? 84 : 110, borderRadius: "50%", objectFit: "cover", margin: "0 auto 14px", display: "block" }} />
 
         <p style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 700, fontSize: m ? "0.9rem" : "clamp(1rem,2.6vw,1.25rem)", color: C.dark, margin: "0 0 2px", letterSpacing: 3, textTransform: "uppercase" }}>BINDU SOCIETY</p>
-        <p style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 400, fontSize: m ? "0.75rem" : "0.88rem", color: C.mid, margin: "0 0 16px" }}>Presents</p>
+        <p style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 400, fontSize: m ? "0.75rem" : "0.88rem", color: C.mid, margin: "0 0 16px" }}>Presents</p> */}
 
 
         <div style={{ background: "rgba(255,255,255,0.65)", borderRadius: 16, padding: m ? "14px" : "22px 34px", backdropFilter: "blur(8px)", boxShadow: "0 4px 22px rgba(192,0,110,0.11)", border: `1px solid rgba(192,0,110,0.13)`, marginBottom: 16 }}>
@@ -216,7 +217,7 @@ const Hero = () => {
           <span style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 900, fontSize: m ? "0.9rem" : "1.2rem", color: "#a20f40", letterSpacing: 2, textTransform: "uppercase" }}>✦ CHIEF GUEST ✦</span>
 
           <p style={{ fontFamily: "'Playfair Display',serif", fontWeight: 700, fontSize: m ? "0.95rem" : "clamp(0.98rem,2.5vw,1.3rem)", color: C.dark, margin: 0 }}>Smt. Vangalapudi Anitha</p>
-          <p style={{ fontFamily: "'Poppins',sans-serif", fontSize: m ? "0.66rem" : "0.78rem", color: C.mid, margin: "-4px 0 0" }}>(Hon'ble Home Minister, Government of Andhra Pradesh)</p>
+          <p style={{ fontFamily: "'Poppins',sans-serif", fontSize: m ? "0.66rem" : "0.78rem", color: C.mid, margin: "-4px 0 0" }}>(Hon'ble Home Minister, Government of <br/> Andhra Pradesh)</p>
         </div>
 
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexWrap: "wrap", gap: m ? 8 : 16, background: C.white, borderRadius: 12, padding: m ? "11px 12px" : "15px 26px", boxShadow: "0 4px 18px rgba(192,0,110,0.11)", marginBottom: 12 }}>
@@ -249,7 +250,7 @@ const About = () => {
           <SH>About Bindu Society</SH>
           <div style={{ display: "flex", flexDirection: m ? "column" : "row", gap: m ? 14 : 24, alignItems: "flex-start" }}>
             <img src="https://res.cloudinary.com/dcnwphnzn/image/upload/v1771322963/502984340_17844445962497801_1109855258096356854_n.jpg_zj71e9.jpg" alt="Bindu Society"
-              style={{ width: m ? 64 : 90, height: m ? 64 : 90, borderRadius: 12, objectFit: "cover", flexShrink: 0 }} />
+              style={{ width: m ? 52 : 79, height: m ? 52 : 79, borderRadius: 12, objectFit: "cover", flexShrink: 0 }} />
             <div style={{ flex: 1 }}>
               <p style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 400, fontSize: m ? "0.79rem" : "0.92rem", color: C.mid, lineHeight: 1.78, margin: "0 0 14px" }}>
                 Bindu Women Entrepreneur Society empowers women through mentoring, MSME support, expos, and networking, with <strong>300+ members</strong> growing businesses via BBH – Building Business Hub.
@@ -416,7 +417,7 @@ const Program = () => {
             </div>
           ))}
         </div>
-
+         <RazorpayButton/>
 
 
 
@@ -546,7 +547,7 @@ const Highlights = () => {
     { name: "Silver Glass", img: "https://i.pinimg.com/736x/a0/7a/fd/a07afd490d565af24ed929433fd26bfc.jpg" },
     { name: "Wet Grinder", img: "https://i.pinimg.com/1200x/10/32/d8/1032d8e4ca079aa947bb1affdc0e40e2.jpg" },
     { name: "2 Food Coupons", img: "https://media.istockphoto.com/id/1451342089/photo/young-couple-eating-burgers-and-drinking-beer.jpg?s=612x612&w=0&k=20&c=b-fcJI1hdBJtA10f_h9KUYE-TffRnBdNgXZrOXnQ7dE=" },
-    { name: "1 Gr Gold Jewellery", img: "https://i.pinimg.com/originals/13/ab/a4/13aba49945ce3ea6deccb3d67ee945ad.jpg" },
+    { name: "1 Gram Gold Jewellery", img: "https://i.pinimg.com/originals/13/ab/a4/13aba49945ce3ea6deccb3d67ee945ad.jpg" },
   ];
 
   const cats = [
@@ -630,7 +631,7 @@ const Highlights = () => {
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
               <div>
-                <h3 style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 800, fontSize: m ? "1rem" : "1.3rem", color: C.dark, margin: 0 }}>Lucky Dip Prizes Include:</h3>
+                <p style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 800, fontSize: m ? "1rem" : "1.3rem", color: C.dark, margin: 0 }}>Lucky Dip Prizes Include:</p>
                 <p style={{ fontFamily: "'Poppins',sans-serif", fontStyle: "italic", fontSize: m ? "0.7rem" : "0.85rem", color: C.mid, margin: 0 }}>Disclaimer: Images for reference. Prizes may vary</p>
               </div>
 
@@ -710,7 +711,7 @@ const Highlights = () => {
                 </div>
               ))}
             </div>
-
+<RazorpayButton/>
           </div>
         </div>
 
@@ -953,7 +954,7 @@ const Contact = () => {
               fontWeight: 600
             }}
           >
-            Registration Fee
+            Registration Fee – Includes Lunch & Snacks
           </p>
 
           <p
@@ -998,7 +999,7 @@ const Contact = () => {
               boxShadow: "0 6px 18px rgba(192,0,110,0.25)"
             }}
           >
-            💳 Pay & Register
+            💳 Book Your Slot
           </a>
         </section>
 

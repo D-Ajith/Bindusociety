@@ -98,7 +98,7 @@ export default function App() {
                         >
                             <div>
                                 <p style={{ fontFamily: "'Poppins',sans-serif", fontSize: m ? "0.6rem" : "0.7rem", color: "#7a4060", fontWeight: 500, textTransform: "uppercase", letterSpacing: 1, margin: 0 }}>
-                                  🎀  Registration Fee
+                                  🎀  Registration Fee – Includes Lunch & Snacks
                                 </p>
                                 <p style={{ fontFamily: "'Poppins',sans-serif", fontSize: m ? "1.5rem" : "2rem", fontWeight: 800, color: "#C0006E", lineHeight: 1, marginTop: 2 }}>
                                     ₹599
@@ -123,7 +123,7 @@ export default function App() {
                                     textDecoration: "none",
                                 }}
                             >
-                                💳 Pay &amp; Register
+                                💳 Book &amp; Your Slot
                             </a>
                         </div>
 
