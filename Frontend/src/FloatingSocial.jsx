@@ -19,7 +19,7 @@ export default function FloatingSocial() {
 We are conducting Maghuvotsavam 2026 - International Women's Day Celebration 💐
 
 📅 Date: Saturday, March 07, 2026
-⏰ Time: 9 AM - 1 PM
+⏰ Time: 9 AM - 3 PM
 📍 Venue: VMRDA Children's Arena, Siripuram, Visakhapatnam
 
 🎉 Awards | 🎮 Games | 👗 Saree Parampara | 🎁 Lucky Dip Prizes

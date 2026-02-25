@@ -153,7 +153,7 @@ const Nav = () => {
             ))}
           </div>
           <div style={{ padding: "14px 20px", borderTop: `1px solid ${C.magenta}12`, background: C.gray, textAlign: "center" }}>
-            <p style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 600, fontSize: "0.7rem", color: C.magenta, margin: "0 0 3px" }}>📅 March 07, 2026 • 9 AM – 1 PM</p>
+            <p style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 600, fontSize: "0.7rem", color: C.magenta, margin: "0 0 3px" }}>📅 March 07, 2026 • 9 AM – 3 PM</p>
             <p style={{ fontFamily: "'Poppins',sans-serif", fontSize: "0.65rem", color: C.mid, margin: 0 }}>VMRDA Children's Arena, Visakhapatnam</p>
           </div>
         </div>
@@ -221,7 +221,7 @@ const Hero = () => {
         </div>
 
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexWrap: "wrap", gap: m ? 8 : 16, background: C.white, borderRadius: 12, padding: m ? "11px 12px" : "15px 26px", boxShadow: "0 4px 18px rgba(192,0,110,0.11)", marginBottom: 12 }}>
-          {[{ t: "SATURDAY" }, { t: "MARCH 07, 2026", sep: true }, { t: "9 AM – 1 PM" }].map((d, i) => (
+          {[{ t: "SATURDAY" }, { t: "MARCH 07, 2026", sep: true }, { t: "9 AM – 3 PM" }].map((d, i) => (
             <div key={i} style={{ display: "flex", alignItems: "center", gap: 5 }}>
               {d.sep && <div style={{ width: 1, height: 26, background: C.pink, marginRight: 4 }} />}
               <span style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 700, fontSize: m ? "0.67rem" : "0.86rem", color: C.dark }}>{d.t}</span>
