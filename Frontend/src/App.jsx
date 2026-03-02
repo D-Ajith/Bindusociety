@@ -106,7 +106,7 @@ const Nav = () => {
         display: "flex", alignItems: "center", justifyContent: "space-between",
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <img src="https://res.cloudinary.com/dcnwphnzn/image/upload/v1771322963/502984340_17844445962497801_1109855258096356854_n.jpg_zj71e9.jpg" alt="Bindu Logo"
+          <img src="./bindu.jpg" alt="Bindu Logo"
             style={{ width: 40, height: 40, borderRadius: "50%", objectFit: "cover" }} />
           <span style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 800, fontSize: "clamp(0.85rem,2vw,1rem)", color: scrolled || open ? C.magenta : C.deep }}>Bindu Society</span>
         </div>
