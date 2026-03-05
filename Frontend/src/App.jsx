@@ -981,7 +981,7 @@ const Contact = () => {
           </p>
 
           <a
-            href="https://rzp.io/rzp/vRIXO9g"
+            href="https://rzp.io/rzp/BI6juNt"
             target="_blank"
             rel="noopener noreferrer"
             style={{

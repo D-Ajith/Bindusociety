@@ -1,6 +1,6 @@
 const RazorpayButton = () => {
   const handleClick = () => {
-    window.open("https://rzp.io/rzp/vRIXO9g", "_blank");
+    window.open("https://rzp.io/rzp/BI6juNt", "_blank");
   };
 
   return (

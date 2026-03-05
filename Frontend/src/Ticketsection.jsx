@@ -107,7 +107,7 @@ export default function App() {
                             </div>
 
                             <a
-                                href="https://rzp.io/rzp/vRIXO9g"
+                                href="https://rzp.io/rzp/BI6juNt"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center rounded-xl no-underline transition-all duration-150 hover:-translate-y-0.5"
