@@ -249,7 +249,7 @@ const About = () => {
         <div style={{ background: `linear-gradient(135deg,${C.off},#fff)`, borderRadius: 16, padding: m ? "18px 14px" : "clamp(20px,4vw,36px)", marginBottom: 20, boxShadow: "0 4px 24px rgba(192,0,110,0.07)", border: `1px solid ${C.magenta}13` }}>
           <SH>About Bindu Society</SH>
           <div style={{ display: "flex", flexDirection: m ? "column" : "row", gap: m ? 14 : 24, alignItems: "flex-start" }}>
-            <img src="https://res.cloudinary.com/dcnwphnzn/image/upload/v1771322963/502984340_17844445962497801_1109855258096356854_n.jpg_zj71e9.jpg" alt="Bindu Society"
+            <img src="/bindu.jpg" alt="Bindu Society"
               style={{ width: m ? 52 : 79, height: m ? 52 : 79, borderRadius: 12, objectFit: "cover", flexShrink: 0 }} />
             <div style={{ flex: 1 }}>
               <p style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 400, fontSize: m ? "0.79rem" : "0.92rem", color: C.mid, lineHeight: 1.78, margin: "0 0 14px" }}>
@@ -270,7 +270,7 @@ const About = () => {
         <div style={{ background: `linear-gradient(135deg,#fff9fc,#fff0f8)`, borderRadius: 16, padding: m ? "18px 14px" : "clamp(20px,4vw,36px)", boxShadow: "0 4px 24px rgba(192,0,110,0.07)", border: `1px solid ${C.magenta}13` }}>
           <SH>About The Founder – Smt. Hima Bindu</SH>
           <div style={{ display: "flex", flexDirection: m ? "column" : "row", gap: m ? 14 : 24, alignItems: "flex-start" }}>
-            <img src="https://res.cloudinary.com/dcnwphnzn/image/upload/v1771484810/EYE00039_xcejgr.jpg" alt="Smt. Hima Bindu – Founder"
+            <img src="/bindus.jpg" alt="Smt. Hima Bindu – Founder"
               style={{ width: m ? 80 : 110, height: m ? 80 : 110, borderRadius: "50%", objectFit: "cover", objectPosition: "center top", flexShrink: 0 }} />
             <div style={{ flex: 1 }}>
               <p style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 400, fontSize: m ? "0.79rem" : "0.92rem", color: C.mid, lineHeight: 1.78, margin: "0 0 14px" }}>
@@ -783,7 +783,7 @@ const Contact = () => {
 
       <div style={{ maxWidth: 720, margin: "0 auto", position: "relative", zIndex: 2 }}>
 
-        <img src="https://res.cloudinary.com/dcnwphnzn/image/upload/v1771322963/502984340_17844445962497801_1109855258096356854_n.jpg_zj71e9.jpg" alt="Bindu Society"
+        <img src="/bindu.jpg" alt="Bindu Society"
           style={{ width: m ? 70 : 92, height: m ? 70 : 92, borderRadius: "50%", objectFit: "cover", margin: "0 auto 14px", display: "block" }} />
 
         <h2 style={{ fontFamily: "'Great Vibes',cursive", fontSize: m ? "2.8rem" : "clamp(2.8rem,7vw,4.8rem)", color: C.magenta, margin: "0 0 6px", lineHeight: 1 }}>Thank You</h2>
@@ -968,7 +968,7 @@ const Contact = () => {
               lineHeight: 1
             }}
           >
-            ₹599
+            ₹499
             <span
               style={{
                 fontSize: "0.7rem",

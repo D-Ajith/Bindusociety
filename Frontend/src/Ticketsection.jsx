@@ -101,7 +101,7 @@ export default function App() {
                                   🎀  Registration Fee – Includes Lunch & Snacks
                                 </p>
                                 <p style={{ fontFamily: "'Poppins',sans-serif", fontSize: m ? "1.5rem" : "2rem", fontWeight: 800, color: "#C0006E", lineHeight: 1, marginTop: 2 }}>
-                                    ₹599
+                                    ₹499
                                     <span style={{ fontSize: m ? "0.75rem" : "0.9rem", fontWeight: 500, color: "#7a4060" }}>/person</span>
                                 </p>
                             </div>
