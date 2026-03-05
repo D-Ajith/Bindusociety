@@ -25,7 +25,7 @@ We are conducting Maghuvotsavam 2026 - International Women's Day Celebration �
 🎉 Awards | 🎮 Games | 👗 Saree Parampara | 🎁 Lucky Dip Prizes
 🍱 Snacks & Lunch Included
 
-🎟 Registration Fee: Rs.599/person
+🎟 Registration Fee: Rs.499/person
 
 🔗 Register here:
 https://bindusociety.vercel.app/
@@ -35,7 +35,7 @@ https://bindusociety.vercel.app/
   "https://api.whatsapp.com/send?phone=917997444649&text=" +
   encodeURIComponent(message);
 
-  const razorpayLink = "https://rzp.io/rzp/vRIXO9g";
+  const razorpayLink = "https://rzp.io/rzp/BI6juNt";
 
   const mainSize = isMobile ? 48 : 60;
   const subSize = isMobile ? 40 : 50;
